@@ -19,7 +19,7 @@ scriptRegex().test('<script>console.log(\'asd\')</script>');
 //=> true
 
 '<script>console.log(\'asd\')</script> asd'.match(scriptRegex());
-//=> ['<script>console.log(\'asd\')</script>'']
+//=> ['<script>console.log(\'asd\')</script>']
 ```
 
 
