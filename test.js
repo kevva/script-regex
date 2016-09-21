@@ -1,29 +1,24 @@
-'use strict';
-var test = require('ava');
-var scriptRegex = require('./');
+import test from 'ava';
+import m from './';
 
-test('match script tags', function (t) {
-	var fixtures = [
+test('match script tags', t => {
+	const fixtures = [
 		'<script>console.log(\'asd\')</script>',
 		'<script src="index.js">console.log(\'asd\')</script>'
 	];
 
-	fixtures.forEach(function (el) {
-		t.ok(scriptRegex().test(el), el);
-	});
-
-	t.end();
+	for (const x of fixtures) {
+		t.true(m().test(x));
+	}
 });
 
-test('do not match script tags', function (t) {
-	var fixtures = [
+test('do not match script tags', t => {
+	const fixtures = [
 		'<script>console.log(\'asd\')',
 		'<scriptt>console.log(\'asd\')</script>'
 	];
 
-	fixtures.forEach(function (el) {
-		t.ok(!scriptRegex().test(el), el);
-	});
-
-	t.end();
+	for (const x of fixtures) {
+		t.false(m().test(x));
+	}
 });

@@ -13,7 +13,7 @@ $ npm install --save script-regex
 ## Usage
 
 ```js
-var scriptRegex = require('script-regex');
+const scriptRegex = require('script-regex');
 
 scriptRegex().test('<script>console.log(\'asd\')</script>');
 //=> true
